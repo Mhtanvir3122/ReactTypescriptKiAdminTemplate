@@ -82,7 +82,7 @@ const FlagIcons: React.FC = () => {
                           <strong className="text-uppercase">
                             {countryCode}
                           </strong>
-                          {/* <code>{FlagData[countryCode]}</code> */}
+                         {/* <code>{FlagData[countryCode]}</code> */}
                           <br />
                         </div>
                       </li>
