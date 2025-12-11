@@ -6,6 +6,8 @@ import ModalBody from "@/components/myComponant/Modal/ModalBody";
 import ModalFooter from "@/components/myComponant/Modal/ModalFooter";
 import ModalHeader from "@/components/myComponant/Modal/ModalHeader";
 import { Autocomplete } from "@/components/myComponant/Select";
+import Switch from "@/components/myComponant/Switch";
+import Checkbox from "@/components/myComponant/Checkbox";
 
 interface AgentMappingModalProps {
   isOpen?: boolean;
@@ -68,6 +70,7 @@ export const AgentMappingModal = ({
                 // isError={!!errors?.moduleDto}
                 // errorMessage={errors?.moduleDto?.message as string}
               />
+              <Checkbox name="ss" registerProperty={'sss'}  />
             </div>
           </div>
         </ModalBody>
