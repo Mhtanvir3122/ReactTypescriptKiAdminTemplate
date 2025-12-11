@@ -13,11 +13,9 @@ export const isObjectNull = (value: any): boolean => {
   return value === null || value === undefined;
 };
 
-export const notNullOrUndefined = <T>(
-  value: T | null | undefined
-): value is T => {
-  return value !== null && value !== undefined;
-};
+export const notNullOrUndefined = <T>(value: T | null | undefined): value is T =>
+  value !== null && value !== undefined;
+
 
 // --------------------
 // Regex

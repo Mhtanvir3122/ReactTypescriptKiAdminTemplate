@@ -47,7 +47,7 @@ const Drawer: React.FC<DrawerProps> = ({
               iconName="faXmarkCircle"
               onClick={onClose}
               size="xl"
-              color="#E4004B"
+              color="#D84040"
             />
           </div>
         </div>

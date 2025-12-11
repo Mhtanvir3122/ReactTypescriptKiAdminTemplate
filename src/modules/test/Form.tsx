@@ -2,8 +2,10 @@ import { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-import Input from "@/components/myComponant/input/input";
 import Drawer from "@/components/myComponant/Drawer/Drawer";
+import { Autocomplete } from "@/components/myComponant/Select";
+import Separator from "@/components/myComponant/Separator/Separator";
+import Input from "@/components/myComponant/input/input";
 
 interface ICertificationForm {
   isOpen: boolean;
@@ -23,6 +25,7 @@ const CertificationForm = ({
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -52,7 +55,46 @@ const CertificationForm = ({
           errorMessage={errors?.titleEn?.message as string}
         />
 
+        <Autocomplete
+          filterProps={["nameBn", "nameEn"]}
+          options={[
+            { id: 1, nameBn: "Tanvir" },
+            { id: 2, nameBn: "Rabbani Vai" },
+          ]}
+          label="মডিউল"
+          placeholder="মডিউল বাছাই করুন"
+          getOptionLabel={(op) => op?.nameBn}
+          getOptionValue={(op) => op?.id}
+          name="module"
+          noMargin
+          control={control}
+          // onChange={(val) => setValue("moduleId", val?.id)}
+          isRequired="মডিউল বাছাই করুন"
+          isError={!!errors?.module}
+          errorMessage={errors?.module?.message as string}
+        />
+
+          <Autocomplete
+          filterProps={["nameBn", "nameEn"]}
+          options={[
+            { id: 1, nameBn: "Tanvir" },
+            { id: 2, nameBn: "Rabbani Vai" },
+          ]}
+          label="মডিউল"
+          placeholder="মডিউল বাছাই করুন"
+          getOptionLabel={(op) => op?.nameBn}
+          getOptionValue={(op) => op?.id}
+          name="module"
+          noMargin
+          control={control}
+          // onChange={(val) => setValue("moduleId", val?.id)}
+          isRequired="মডিউল বাছাই করুন"
+          isError={!!errors?.module}
+          errorMessage={errors?.module?.message as string}
+        />
         <div className="text-end mt-4">
+          <Separator />
+
           <Button variant="primary" type="submit">
             Submit
           </Button>

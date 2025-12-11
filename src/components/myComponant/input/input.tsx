@@ -104,7 +104,7 @@ const Input = ({
 
   return (
     <div
-      className={clsx([`w-100 fv-row`, { [className as string]: !!className, "mb-6": !noMargin }])}
+      className={clsx([`w-100 fv-row mb-3`, { [className as string]: !!className, "mb-3": !noMargin }])}
     >
       {label ? (
         <label className="d-flex align-items-center fs-5">

@@ -1,9 +1,9 @@
 import { FC, ReactNode } from "react";
 import { Card } from "react-bootstrap";
 
-import { ITableHeadColumn, Table } from "@/components/myComponant/tableFor/Table";
-import { TableCell } from "@/components/myComponant/tableFor/TableCell";
-import { TableRow } from "@/components/myComponant/tableFor/TableRow";
+import { ITableHeadColumn, Table } from "@/components/myComponant/TableFor/Table";
+import { TableCell } from "@/components/myComponant/TableFor/TableCell";
+import { TableRow } from "@/components/myComponant/TableFor/TableRow";
 
 const columns: ITableHeadColumn[] = [
   { title: "Id", width: 20 },
