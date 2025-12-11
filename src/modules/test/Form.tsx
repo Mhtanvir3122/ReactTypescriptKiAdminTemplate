@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-import Drawer from "@/components/Drawer/Drawer";
-import Input from "@/components/ui-kits/input/input";
+import Input from "@/components/myComponant/input/input";
+import Drawer from "@/components/myComponant/Drawer/Drawer";
 
 interface ICertificationForm {
   isOpen: boolean;
