@@ -216,7 +216,7 @@ const Autocomplete = ({
               // { "is-invalid": isError },
             ]),
         }}
-        className={isError?"borderColor":"w-100  "}
+        className={isError?"borderColor w-100":"w-100  "}
         isMulti={isMulti}
         placeholder={placeholder}
         defaultValue={defaultValue}
