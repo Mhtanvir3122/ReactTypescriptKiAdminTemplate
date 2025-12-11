@@ -65,13 +65,13 @@ const CertificationForm = ({
           placeholder="মডিউল বাছাই করুন"
           getOptionLabel={(op) => op?.nameBn}
           getOptionValue={(op) => op?.id}
-          name="module"
+          name="module2"
           noMargin
           control={control}
-          // onChange={(val) => setValue("moduleId", val?.id)}
+          // onChange={(val) => setValue("module2Id", val?.id)}
           isRequired="মডিউল বাছাই করুন"
-          isError={!!errors?.module}
-          errorMessage={errors?.module?.message as string}
+          isError={!!errors?.module2}
+          errorMessage={errors?.module2?.message as string}
         />
 
           <Autocomplete

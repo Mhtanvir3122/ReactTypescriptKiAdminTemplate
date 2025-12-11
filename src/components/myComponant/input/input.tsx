@@ -1,9 +1,16 @@
-import clsx from "clsx";
 import { useState } from "react";
+
+import clsx from "clsx";
+
+import Icon from "../Icon";
+import {
+  BN_EN_DECIMAL_NUMERIC_REGEX,
+  BN_EN_NUMERIC_REGEX,
+  numEnToBn,
+} from "./checkValidation";
 import "./style.scss";
-import { BN_EN_DECIMAL_NUMERIC_REGEX, BN_EN_NUMERIC_REGEX, numEnToBn } from "./checkValidation";
-import { Icon } from "@iconify/react";
-type ISizes = 'lg' | 'md' | 'sm';
+
+type ISizes = "lg" | "md" | "sm";
 
 type IInputProps = {
   name?: string;
@@ -98,23 +105,25 @@ const Input = ({
   inputRef,
   viewOnly,
   isPhone = false,
-  onKeyDown
+  onKeyDown,
 }: IInputProps) => {
   const [inputType, setInputType] = useState<string>(type);
 
   return (
     <div
-      className={clsx([`w-100 fv-row mb-3`, { [className as string]: !!className, "mb-3": !noMargin }])}
+      className={clsx([
+        `w-100 fv-row mb-3`,
+        { [className as string]: !!className, "mb-3": !noMargin },
+      ])}
     >
       {label ? (
         <label className="d-flex align-items-center fs-5">
-<span className={isRequired ? "required" : ""}>
-  {label}
-  {isRequired && <span style={{color:"red"}}>*</span>}
-</span>
-          {/* {hasInfo && <Icon icon="help" hoverTitle={infoText} />} */}
-                    {hasInfo && <Icon icon="help"  />}
-
+          <span className={isRequired ? "required" : ""}>
+            {label}
+            {isRequired && <span style={{ color: "red" }}>*</span>}
+          </span>
+          {hasInfo && <Icon icon="help" hoverTitle={infoText} />}
+          {hasInfo && <Icon icon="help" />}
         </label>
       ) : null}
       <div className={`position-relative ${isPhone ? " phone-field" : ""}`}>
@@ -130,7 +139,10 @@ const Input = ({
           </span>
         )}
         {isPhone && (
-          <div className="phone-prefix d-flex align-items-center position-absolute top-50 ms-3 translate-middle-y" style={{borderRadius:8}}>
+          <div
+            className="phone-prefix d-flex align-items-center position-absolute top-50 ms-3 translate-middle-y"
+            style={{ borderRadius: 8 }}
+          >
             <img src="/src/assets/svg/home.svg" alt="bd" />
             &nbsp;
             <span>+88</span>
@@ -146,8 +158,8 @@ const Input = ({
             <input
               type={inputType}
               autoFocus={autoFocus}
-              className={`form-control form-control-${size} form-control-${variant} ${
-                isError ? "is-invalid" : ""
+              className={`form-control form-control-${size} form-control-${variant} input-rounded ${
+                isError ? "is-invalid " : ""
               } ${isValid ? "is-valid" : ""} ${startIcon ? "ps-11" : ""}`}
               name={name}
               accept={accept}
@@ -170,8 +182,10 @@ const Input = ({
                   ? (e) =>
                       e.charCode !== 13
                         ? numaricOnly
-                          ? !BN_EN_NUMERIC_REGEX.test(e.key) && e.preventDefault()
-                          : !BN_EN_DECIMAL_NUMERIC_REGEX.test(e.key) && e.preventDefault()
+                          ? !BN_EN_NUMERIC_REGEX.test(e.key) &&
+                            e.preventDefault()
+                          : !BN_EN_DECIMAL_NUMERIC_REGEX.test(e.key) &&
+                            e.preventDefault()
                         : null
                   : null
               }
@@ -183,11 +197,15 @@ const Input = ({
             {type === "password" && (
               <span className="position-absolute top-50 end-0 mt-1 me-3 translate-middle-y">
                 <Icon
-                  icon={inputType === "password" ? "visibility_off" : "visibility"}
-                //   variants="outlined"
-                //   size={20}
+                  icon={
+                    inputType === "password" ? "visibility_off" : "visibility"
+                  }
+                  //   variants="outlined"
+                  //   size={20}
                   onClick={() =>
-                    setInputType((prev) => (prev === "password" ? "text" : "password"))
+                    setInputType((prev) =>
+                      prev === "password" ? "text" : "password"
+                    )
                   }
                 />
               </span>
@@ -210,4 +228,4 @@ const Input = ({
   );
 };
 
-export default Input ;
+export default Input;
