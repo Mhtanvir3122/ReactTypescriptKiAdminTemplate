@@ -1,22 +1,23 @@
 import { FC, ReactNode } from "react";
 import { Card } from "react-bootstrap";
 
+import { Dropdown, DropdownItem } from "@/components/myComponant/Dropdown";
+import Icon from "@/components/myComponant/Icon";
 import {
   ITableHeadColumn,
   Table,
 } from "@/components/myComponant/TableFor/Table";
 import { TableCell } from "@/components/myComponant/TableFor/TableCell";
 import { TableRow } from "@/components/myComponant/TableFor/TableRow";
-import { Dropdown, DropdownItem } from "@/components/myComponant/Dropdown";
-import Icon from "@/components/myComponant/Icon";
+import { numEnToBn } from "@/components/myComponant/input/checkValidation";
 
 const columns: ITableHeadColumn[] = [
-  { title: "Id", width: 20 },
-  { title: "Name", width: 200 },
-  { title: "Position", minWidth: 150 },
-  { title: "Office", minWidth: 150 },
-  { title: "Status", minWidth: 120 },
-  { title: "Salary", minWidth: 20,className:"d-flex justify-content-center" },
+  { title: "Serial", width: 20 },
+  { title: "Course Name", width: 200 },
+  { title: "Department", minWidth: 150 },
+  { title: "Time", minWidth: 150 },
+  { title: "Department", minWidth: 120 },
+  { title: "Action", minWidth: 20, className: "d-flex justify-content-center" },
 ];
 interface CourseTableProps {
   children?: ReactNode;
@@ -40,30 +41,37 @@ const CourseTable: FC<CourseTableProps> = ({
         <Table columns={columns}>
           {tableData?.map((item: any, i: number) => (
             <TableRow key={item?.id || i}>
-              <TableCell text={i+1} />
+              <TableCell text={numEnToBn(i + 1)} />
 
-              <TableCell text={item?.name || "dfdf"} />
-              <TableCell text={item?.department?.name || "dfdf"} />
+              <TableCell text={item?.name || "তথ্য নেই "} />
+              <TableCell text={item?.department?.name || "তথ্য নেই "} />
 
-              <TableCell text={item?.createdOn || "dfdf"} />
+              <TableCell text={item?.createdOn || "তথ্য নেই "} />
 
-              <TableCell text={item?.department?.name || "dfdf"} />
+              <TableCell text={item?.department?.name || "তথ্য নেই "} />
 
               <TableCell className="p-0 m-0 ">
-                  <div className="d-flex justify-content-center align-items-center">
-   
-                <Dropdown className="p-0 m-0" btnContent={<Icon className="p-0 m-0 px-0 py-0" icon="more_vert" size={20} />}>
-                  <DropdownItem
-                    onClick={() => {
-                      handleUpdate(item);
-                    }}
+                <div className="d-flex justify-content-center align-items-center">
+                  <Dropdown
+                    className="p-0 m-0"
+                    btnContent={
+                      <Icon
+                        className="p-0 m-0 px-0 py-0"
+                        icon="more_vert"
+                        size={20}
+                      />
+                    }
                   >
-                    <Icon size={19} icon="edit" />
-                    <h6 className="mb-0 ms-3">সম্পাদনা করুন</h6>
-                  </DropdownItem>
-                </Dropdown>
-                 {/* content */}
-  </div>
+                    <DropdownItem
+                      onClick={() => {
+                        handleUpdate(item);
+                      }}
+                    >
+                      <Icon size={16} icon="edit"  color="info"/>
+                      <h6 className="mb-0 ms-2" style={{fontSize:16}}>সম্পাদনা করুন</h6>
+                    </DropdownItem>
+                  </Dropdown>
+                </div>
               </TableCell>
             </TableRow>
           ))}

@@ -8,7 +8,7 @@ type DropdownItemProps = {
 
 const DropdownItem: FC<DropdownItemProps> = ({ children, onClick }) => {
   return (
-    <Dropdown.Item className="d-flex align-items-center p-3 item" onClick={onClick}>
+    <Dropdown.Item className="d-flex align-items-center item " onClick={onClick} >
       {children}
     </Dropdown.Item>
   );

@@ -43,7 +43,7 @@ const Dropdown: FC<IDropdown> = ({
       </ReactDropdown.Toggle>
 
       <ReactDropdown.Menu>
-        <div className="menu-wrapper">{children}</div>
+        <div className="menu-wrapper" >{children}</div>
       </ReactDropdown.Menu>
     </ReactDropdown>
   );
@@ -51,5 +51,5 @@ const Dropdown: FC<IDropdown> = ({
 
 export { Dropdown };
 export const generateId = (): number => {
-  return Date.now(); // বা আপনার logic
+  return Date.now(); 
 };

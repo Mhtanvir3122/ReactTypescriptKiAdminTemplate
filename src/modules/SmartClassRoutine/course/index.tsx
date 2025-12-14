@@ -9,6 +9,9 @@ import Breadcrumbs from "@/components/breadcrumb/Breadcrumb";
 import Button from "@/components/myComponant/Button";
 import Icon from "@/components/myComponant/Icon";
 import Pagination from "@/components/myComponant/Pagination";
+import Separator from "@/components/myComponant/Separator/Separator";
+import Input from "@/components/myComponant/input/input";
+import { searchParamsToObject } from "@/components/myComponant/utils/makeObject";
 import {
   IMeta,
   useDebounce,
@@ -41,6 +44,16 @@ const Course = () => {
   const [listData, setListData] = useState<any>([]);
   const [updateData, setUpdateData] = useState<any>({});
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
+  const params: any = searchParamsToObject(searchParams);
+
+  // update search params
+  useEffect(() => {
+    if (searchKey) params.searchKey = searchKey;
+    else delete params.searchKey;
+
+    setSearchParams({ ...params });
+    // eslint-disable-next-line
+  }, [searchKey]);
 
   const handleUpdate = (data: any) => {
     setIsUpdate(true);
@@ -80,7 +93,9 @@ const Course = () => {
     CourseService.coursesGetList(payload).then((res) => {
       setListData(res?.data?.body || []);
       setRespMeta(
-        res?.data?.meta ? { ...res?.data?.meta } : { limit: respMeta?.limit, page: 0 }
+        res?.data?.meta
+          ? { ...res?.data?.meta }
+          : { limit: respMeta?.limit, page: 0 }
       );
     });
     // .catch((err) => toast.error(err?.message))
@@ -94,24 +109,28 @@ const Course = () => {
     <Container fluid>
       <Row>
         <Breadcrumbs
-          mainTitle="Base Input"
+          mainTitle="Course"
           title="Form Elements"
-          path={["Base Input"]}
+          path={["Course"]}
           Icon={Cardholder}
         />
-
-        <div className="d-flex gap-3 justify-content-end">
-          <Button size="md" onClick={() => setIsDrawerOpen(true)}>
-            <Icon icon="add" />
-            &nbsp;যুক্ত করুন
-          </Button>
-
-          <Button onClick={() => setIsOpenModal(true)}>
-            <Icon icon="add" />
-            &nbsp;modal
-          </Button>
+<div className="d-flex flex-column flex-md-row gap-3 align-items-stretch">
+          <div className="flex-grow-1">
+            <Input
+              type="search"
+              placeholder="অনুসন্ধান করুন..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <Button size="md" onClick={() => setIsDrawerOpen(true)}>
+              <Icon icon="add" />
+              &nbsp;যুক্ত করুন
+            </Button>
+          </div>
         </div>
-        <div className="mt-4">
+
+        <div className="mt-2">
           <CourseTable tableData={listData} handleUpdate={handleUpdate}>
             <Pagination
               meta={respMeta}
