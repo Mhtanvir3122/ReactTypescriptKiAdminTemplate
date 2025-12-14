@@ -201,7 +201,7 @@ const GalleryLayout: React.FC = () => {
 
               return (
                 <Col {...section.cols} key={sectionIndex}>
-                  {renderImageBox(section, sectionIndex)}
+                  {/* {renderImageBox(section, sectionIndex)} */}
                 </Col>
               );
             })}
