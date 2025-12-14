@@ -15,6 +15,7 @@ import {
   MY_PAGES_ROUTES,
   OTHER_PAGES_ROUTES,
   READY_T0_USE_ROUTES,
+  SMART_CLASS_ROUTINE_ROUTES,
   TABLES_ROUTES,
   UI_KITS_ROUTES,
   WIDGETS_PAGE,
@@ -324,6 +325,11 @@ const Landing = React.lazy(() => import("@/pages/other-pages/landing"));
 
 /////////////////
 const Tanvir = React.lazy(() => import("@/modules/test"));
+const ClassRoutine = React.lazy(() => import("@/modules/test"));
+
+const Department = React.lazy(() => import("@/modules/test"));
+
+const Course = React.lazy(() => import("@/modules/SmartClassRoutine/course"));
 
 
 ///////////////////
@@ -555,6 +561,13 @@ const routes = [
   //----------------------------------// my //---------------------------//
 
     { path: MY_PAGES_ROUTES.TEST_PAGE, component: <Tanvir /> },
+
+
+    { path: SMART_CLASS_ROUTINE_ROUTES.CLASS_ROUTINE, component: <Course /> },
+    { path: SMART_CLASS_ROUTINE_ROUTES.COURSE, component: <Course /> },
+    { path: SMART_CLASS_ROUTINE_ROUTES.DEPARTMENT, component: <Department /> },
+
+    
 ];
 
 const authRoutes = [

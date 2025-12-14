@@ -215,5 +215,10 @@ export const OTHER_PAGES_ROUTES = {
 
 export const MY_PAGES_ROUTES = {
   TEST_PAGE: "/tanvir/test",
-  
+};
+
+export const SMART_CLASS_ROUTINE_ROUTES = {
+  CLASS_ROUTINE: "/classRoutine",
+  COURSE: "/classRoutine/course",
+  DEPARTMENT: "/classRoutine/department",
 };

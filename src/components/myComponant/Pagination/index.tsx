@@ -147,7 +147,7 @@ const Pagination: React.FC<IPaginationProps> = ({
   const pages = fetchPageNumbers();
 
   return (
-    <div className="row">
+    <div className="row p-3">
       {isLimitChangeable || !hideDataCount ? (
         <div
           className={clsx(
@@ -180,7 +180,7 @@ const Pagination: React.FC<IPaginationProps> = ({
       ) : null}
 
       {pages?.length > 1 && (
-        <nav
+        <div
           className={clsx(
             "col-md-7 d-flex align-items-center justify-content-center justify-content-md-end",
             {
@@ -221,7 +221,7 @@ const Pagination: React.FC<IPaginationProps> = ({
               );
             })}
           </ul>
-        </nav>
+        </div>
       )}
     </div>
   );

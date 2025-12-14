@@ -108,6 +108,18 @@ export const MenuList = [
     path: "/widgets",
     iconClass: "squares",
   },
+    {
+    type: "dropdown",
+    title: "Class Routine",
+    iconClass: "home",
+    name: "Class Routine",
+    collapseId: "classRoutine",
+    path: "/classRoutine",
+    children: [
+      { name: "Course", path: "/classRoutine/course" },
+      { name: "Department", path: "/classRoutine/department" },
+    ],
+  },
   {
     type: "dropdown",
     title: "Component",
