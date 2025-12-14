@@ -11,7 +11,7 @@ interface ICertificationForm {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (data: any) => void;
-  updateData?: { data: any | null; dType: string | null; idx: number | null };
+  updateData?: any;
 }
 
 const CertificationForm = ({
@@ -30,9 +30,9 @@ const CertificationForm = ({
   } = useForm();
 
   useEffect(() => {
-    if (isOpen && updateData?.data) {
+    if (isOpen && updateData) {
       initValue.current = {
-        ...updateData?.data,
+        ...updateData,
       };
     } else initValue.current = {};
     reset({ ...initValue.current });
@@ -45,27 +45,27 @@ const CertificationForm = ({
           label="নাম (ইংরেজি)"
           placeholder="নাম (ইংরেজি) লিখুন"
           registerProperty={{
-            ...register("titleEn", {
+            ...register("name", {
               required: "নাম (ইংরেজি) লিখুন",
             }),
           }}
           // isPhone
           isRequired
-          isError={!!errors?.titleEn}
-          errorMessage={errors?.titleEn?.message as string}
+          isError={!!errors?.name}
+          errorMessage={errors?.name?.message as string}
         />
 
         <Autocomplete
           filterProps={["nameBn", "nameEn"]}
           options={[
-            { id: 1, nameBn: "Tanvir" },
-            { id: 2, nameBn: "Rabbani Vai" },
+            { id: 1, name: "Tanvir" },
+            { id: 2, name: "Rabbani Vai" },
           ]}
           label="মডিউল"
           placeholder="মডিউল বাছাই করুন"
-          getOptionLabel={(op) => op?.nameBn}
+          getOptionLabel={(op) => op?.name}
           getOptionValue={(op) => op?.id}
-          name="module2"
+          name="department"
           noMargin
           control={control}
           // onChange={(val) => setValue("module2Id", val?.id)}
@@ -74,7 +74,7 @@ const CertificationForm = ({
           errorMessage={errors?.module2?.message as string}
         />
 
-          <Autocomplete
+        <Autocomplete
           filterProps={["nameBn", "nameEn"]}
           options={[
             { id: 1, nameBn: "Tanvir" },

@@ -124,7 +124,7 @@ const Course = () => {
         <CourseForm
           isOpen={isDrawerOpen}
           onClose={onDrawerClose}
-          updateData={updateData.current}
+          updateData={updateData}
           onSubmit={onSubmit}
         />
 

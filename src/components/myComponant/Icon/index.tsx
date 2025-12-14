@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import "./Icon.scss";
 import { IColors } from "@/components/myComponent/interface/common.interface";
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 interface IIcon {
   icon: string;

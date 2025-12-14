@@ -22,7 +22,7 @@ export const TableCell: FC<TableCellProps> = ({
   }
 
   return (
-    <td className={className}>
+    <td className={`py-2 ${className}`}>
       {hasImg ? (
         <div className="d-flex align-items-center">
           <div className="avatar-30 me-2">

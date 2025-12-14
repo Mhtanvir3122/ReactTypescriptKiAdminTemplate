@@ -5,6 +5,7 @@ import { Select } from "../Select";
 import { IMeta } from "@/components/myComponent/interface/common.interface";
 import { numEnToBn } from "../input/checkValidation";
 import { searchParamsToObject } from "../utils/makeObject";
+import Separator from "../Separator/Separator";
 
 interface IPaginationProps {
   meta: IMeta;
@@ -147,7 +148,8 @@ const Pagination: React.FC<IPaginationProps> = ({
   const pages = fetchPageNumbers();
 
   return (
-    <div className="row p-3">
+    <div className="row px-3 pb-3">
+      <Separator />
       {isLimitChangeable || !hideDataCount ? (
         <div
           className={clsx(

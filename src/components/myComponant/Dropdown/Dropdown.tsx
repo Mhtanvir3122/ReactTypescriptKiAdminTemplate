@@ -1,4 +1,4 @@
-declare const generateId: () => number;
+
 import clsx from "clsx";
 import React, { FC, ReactNode } from "react";
 import ReactDropdown from "react-bootstrap/Dropdown";
@@ -35,7 +35,7 @@ const Dropdown: FC<IDropdown> = ({
   return (
     <ReactDropdown style={{ position }} className={clsx(className)}>
       <ReactDropdown.Toggle
-        id={id || generateId().toString()}
+        id={id || generateId()?.toString()}
         as={CustomToggle}
         disabled={isDisabled}
       >
@@ -50,3 +50,6 @@ const Dropdown: FC<IDropdown> = ({
 };
 
 export { Dropdown };
+export const generateId = (): number => {
+  return Date.now(); // বা আপনার logic
+};

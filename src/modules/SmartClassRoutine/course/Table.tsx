@@ -7,6 +7,8 @@ import {
 } from "@/components/myComponant/TableFor/Table";
 import { TableCell } from "@/components/myComponant/TableFor/TableCell";
 import { TableRow } from "@/components/myComponant/TableFor/TableRow";
+import { Dropdown, DropdownItem } from "@/components/myComponant/Dropdown";
+import Icon from "@/components/myComponant/Icon";
 
 const columns: ITableHeadColumn[] = [
   { title: "Id", width: 20 },
@@ -14,7 +16,7 @@ const columns: ITableHeadColumn[] = [
   { title: "Position", minWidth: 150 },
   { title: "Office", minWidth: 150 },
   { title: "Status", minWidth: 120 },
-  { title: "Salary", minWidth: 120 },
+  { title: "Salary", minWidth: 20,className:"d-flex justify-content-center" },
 ];
 interface CourseTableProps {
   children?: ReactNode;
@@ -38,7 +40,7 @@ const CourseTable: FC<CourseTableProps> = ({
         <Table columns={columns}>
           {tableData?.map((item: any, i: number) => (
             <TableRow key={item?.id || i}>
-              <TableCell text={item?.id} />
+              <TableCell text={i+1} />
 
               <TableCell text={item?.name || "dfdf"} />
               <TableCell text={item?.department?.name || "dfdf"} />
@@ -46,6 +48,23 @@ const CourseTable: FC<CourseTableProps> = ({
               <TableCell text={item?.createdOn || "dfdf"} />
 
               <TableCell text={item?.department?.name || "dfdf"} />
+
+              <TableCell className="p-0 m-0 ">
+                  <div className="d-flex justify-content-center align-items-center">
+   
+                <Dropdown className="p-0 m-0" btnContent={<Icon className="p-0 m-0 px-0 py-0" icon="more_vert" size={20} />}>
+                  <DropdownItem
+                    onClick={() => {
+                      handleUpdate(item);
+                    }}
+                  >
+                    <Icon size={19} icon="edit" />
+                    <h6 className="mb-0 ms-3">সম্পাদনা করুন</h6>
+                  </DropdownItem>
+                </Dropdown>
+                 {/* content */}
+  </div>
+              </TableCell>
             </TableRow>
           ))}
         </Table>
